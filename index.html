@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BASE ELITE | $BELITE</title>
+<style>
+  /* Reset & basic styling */
+  * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+  body {background:#0f0f0f;color:#f5f5f5;line-height:1.6;}
+  a {text-decoration:none;color:#1da1f2;}
+  a:hover {text-decoration:underline;}
+
+  /* Header */
+  header {background:#121212;padding:30px 20px;text-align:center;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.5);}
+  header img {width:130px;height:auto;margin-bottom:10px;border-radius:15px;}
+  header h1 {font-size:2rem;color:#fff;margin-bottom:10px;}
+  nav {margin-top:10px;}
+  nav a {margin:0 15px;font-weight:600;transition:0.3s;}
+  nav a:hover {color:#ffcc00;}
+
+  /* Sections */
+  section {padding:80px 20px;max-width:1000px;margin:auto;}
+  section h2 {font-size:2rem;margin-bottom:20px;color:#ffcc00;text-align:center;}
+  section p {margin-bottom:15px;text-align:center;}
+
+  /* Tokenomics cards */
+  .tokenomics {display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:30px;}
+  .tokenomics div {flex:1 1 220px;background:#1a1a1a;padding:25px;border-radius:15px;box-shadow:0 0 15px rgba(255,204,0,0.3);transition:0.3s;}
+  .tokenomics div:hover {transform:translateY(-5px);box-shadow:0 0 25px rgba(255,204,0,0.6);}
+  .tokenomics h3 {margin-bottom:10px;color:#ffcc00;}
+
+  /* Roadmap */
+  .roadmap {display:flex;flex-direction:column;gap:20px;align-items:center;margin-top:30px;}
+  .roadmap div {background:#1a1a1a;padding:20px;border-radius:15px;box-shadow:0 0 15px rgba(255,255,255,0.2);width:80%;transition:0.3s;}
+  .roadmap div:hover {transform:translateY(-5px);box-shadow:0 0 25px rgba(255,255,255,0.5);}
+
+  /* Footer */
+  footer {background:#121212;color:#f5f5f5;text-align:center;padding:30px;margin-top:40px;}
+  footer a {margin:0 10px;font-weight:600;}
+
+  /* Animations */
+  .fadeIn {opacity:0;animation:fadeInAnim 1.5s forwards;}
+  @keyframes fadeInAnim {0%{opacity:0;}100%{opacity:1;}}
+
+  /* Responsive */
+  @media(max-width:768px){
+    nav a {display:block;margin:10px 0;}
+    .tokenomics {flex-direction:column;align-items:center;}
+    .roadmap div {width:95%;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA..." alt="BASE ELITE Logo">
+  <h1>BASE ELITE | $BELITE</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#tokenomics">Tokenomics</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- Home Section -->
+<section id="home" class="fadeIn">
+  <h2>Welcome to BASE ELITE</h2>
+  <p>BASE ELITE ($BELITE) is a family-focused token built on love, unity, and support. Join our growing community today!</p>
+</section>
+
+<!-- About Section -->
+<section id="about" class="fadeIn">
+  <h2>About BASE ELITE</h2>
+  <p>Our mission is to create a safe and positive space for crypto enthusiasts. BASE ELITE is not just a token — it’s a family where everyone grows together.</p>
+</section>
+
+<!-- Tokenomics Section -->
+<section id="tokenomics" class="fadeIn">
+  <h2>Tokenomics</h2>
+  <div class="tokenomics">
+    <div>
+      <h3>Total Supply</h3>
+      <p>1,000,000 $BELITE</p>
+    </div>
+    <div>
+      <h3>Community</h3>
+      <p>50% reserved for community rewards and growth</p>
+    </div>
+    <div>
+      <h3>Liquidity</h3>
+      <p>30% locked in liquidity pool</p>
+    </div>
+    <div>
+      <h3>Team</h3>
+      <p>20% reserved for development and team</p>
+    </div>
+  </div>
+</section>
+
+<!-- Roadmap Section -->
+<section id="roadmap" class="fadeIn">
+  <h2>Roadmap</h2>
+  <div class="roadmap">
+    <div><strong>1 December 2025:</strong> Token Launch</div>
+    <div><strong>Q1 2026:</strong> Community & Marketing Expansion</div>
+    <div><strong>Q2 2026:</strong> Strategic Partnerships</div>
+    <div><strong>Q3 2026:</strong> Platform Enhancements & Listing</div>
+  </div>
+</section>
+
+<!-- Contact / Socials Section -->
+<section id="contact" class="fadeIn">
+  <h2>Connect with Us</h2>
+  <p>Join our community on social media:</p>
+  <p>
+    Twitter: <a href="https://twitter.com/baseelite" target="_blank">@baseelite</a><br>
+    Discord: <a href="https://discord.gg/baseelite" target="_blank">Base Elite Community</a><br>
+    Telegram: <a href="https://t.me/BaseEliteHQ" target="_blank">@BaseEliteHQ</a>
+  </p>
+</section>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 BASE ELITE | All rights reserved
+</footer>
+
+<script>
+  // Smooth scrolling for nav links
+  const links = document.querySelectorAll('nav a');
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+    });
+  });
+
+  // FadeIn animation on scroll
+  const faders = document.querySelectorAll('.fadeIn');
+  const appearOptions = {threshold:0.1,rootMargin:"0px 0px -50px 0px"};
+  const appearOnScroll = new IntersectionObserver(function(entries, observer){
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting) return;
+      entry.target.style.opacity = 1;
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {appearOnScroll.observe(fader);});
+</script>
+
+</body>
+</html>
