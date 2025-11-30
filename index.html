@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BASE ELITE | $BELITE</title>
+<style>
+  body {
+    margin:0; padding:0;
+    font-family:'Arial',sans-serif;
+    background: linear-gradient(270deg,#ff9a9e,#fad0c4,#a18cd1,#fbc2eb);
+    background-size:800% 800%;
+    animation:gradientBG 15s ease infinite;
+    color:#fff; overflow-x:hidden; position:relative;
+  }
+  @keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+  }
+  h1,h2{ text-shadow:0 0 10px #fff,0 0 20px #ff00ff,0 0 30px #00ffff;
+    margin:20px 0 10px 0; position:relative; display:inline-block;
+    opacity:0; transform:translateY(30px); transition:all 1s ease-out;}
+  h1.visible,h2.visible{opacity:1; transform:translateY(0);}
+  p{max-width:700px;margin:0 auto 30px auto;font-size:1.1rem;line-height:1.6;
+    color:#fff; opacity:0; transform:translateY(30px); transition:all 1s ease-out;}
+  p.visible{opacity:1; transform:translateY(0);}
+  .btn{display:inline-block;padding:12px 25px;margin:10px 5px;font-size:1rem;
+    color:#fff;background:rgba(255,255,255,0.2);border:2px solid #fff;
+    border-radius:30px;text-decoration:none;transition:all 0.3s ease; position:relative; overflow:hidden;}
+  .btn:hover{background:#fff;color:#000;transform:scale(1.05);
+    box-shadow:0 0 25px #fff,0 0 50px #ff00ff,0 0 75px #00ffff;}
+  .section{padding:80px 20px;position:relative;}
+  .roadmap{display:flex;flex-direction:column;align-items:center;gap:30px;max-width:900px;margin:0 auto;}
+  .roadmap-item{background:rgba(255,255,255,0.1);padding:20px;border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,0.3); width:100%; text-align:left;
+    transition:transform 0.3s, box-shadow 0.3s, opacity 1s, transform 1s; opacity:0; transform:translateY(30px);}
+  .roadmap-item.visible{opacity:1;transform:translateY(0);}
+  .roadmap-item:hover{transform:translateY(-5px);box-shadow:0 0 25px #fff,0 0 40px #ff00ff,0 0 50px #00ffff;}
+  .roadmap-item h3{margin-top:0;}
+  .team{display:flex;justify-content:center;flex-wrap:wrap;gap:40px;max-width:1000px;margin:0 auto;}
+  .team-member{text-align:center;transition:transform 0.3s,box-shadow 0.3s,opacity 1s,transform 1s;
+    border-radius:15px; overflow:hidden;background:rgba(255,255,255,0.1); padding:10px; position:relative;
+    opacity:0; transform:translateY(30px);}
+  .team-member.visible{opacity:1; transform:translateY(0);}
+  .team-member img{width:200px;height:200px;border-radius:50%;object-fit:cover;transition:transform 0.3s;}
+  .team-member:hover{transform:translateY(-10px);box-shadow:0 0 25px #fff,0 0 50px #ff00ff,0 0 75px #00ffff;}
+  .team-member h4{margin:10px 0 5px 0;color:#fff;} .team-member p{margin:0;color:#fff;}
+  .social-icons{display:flex;justify-content:center;gap:10px;margin-top:5px;}
+  .social-icons a{color:#fff;font-size:1.2rem;transition:transform 0.3s;text-decoration:none;}
+  .social-icons a:hover{transform:scale(1.3);color:#ff0;}
+  canvas#particles{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;}
+  @media(max-width:768px){h1{font-size:2rem;}h2{font-size:1.5rem;}p{font-size:1rem;}.team-member img{width:150px;height:150px;}.roadmap{gap:20px;}}
+</style>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<div class="section" id="home">
+<h1>BASE ELITE ($BELITE)</h1>
+<p>A family & love-based crypto token built on unity, trust, and community support. Join our mission and be part of the future.</p>
+<a href="https://t.me/BaseEliteHQ" target="_blank" class="btn">Join Community</a>
+<a href="#roadmap" class="btn">View Roadmap</a>
+</div>
+
+<div class="section" id="about">
+<h2>About BASE ELITE</h2>
+<p>BASE ELITE ($BELITE) is a token dedicated to family, love, and community support. We aim to create a transparent, safe, and engaging crypto environment for everyone. Our mission is to bring unity and real value to our community.</p>
+</div>
+
+<div class="section" id="roadmap">
+<h2>Roadmap</h2>
+<div class="roadmap">
+<div class="roadmap-item"><h3>Phase 1 - Launch</h3><p>Token launch on Base.Meme platform, website live, community engagement begins.</p></div>
+<div class="roadmap-item"><h3>Phase 2 - Growth</h3><p>Listing on popular tracking sites, social media campaigns, partnerships with crypto communities.</p></div>
+<div class="roadmap-item"><h3>Phase 3 - Expansion</h3><p>Introducing staking and rewards, community events, and further transparency initiatives.</p></div>
+<div class="roadmap-item"><h3>Phase 4 - Legacy</h3><p>Establishing BASE ELITE as a recognized family & love-based crypto token, sustainable growth, and long-term support.</p></div>
+</div>
+</div>
+
+<div class="section" id="team">
+<h2>Our Team</h2>
+<div class="team">
+<div class="team-member">
+<img src="saima-maheen.jpg" alt="Saima-Maheen">
+<h4>Saima & Maheen</h4>
+<p>Community & Marketing</p>
+<div class="social-icons"><a href="https://t.me/saima_maheen" target="_blank"><i class="fab fa-telegram"></i></a></div>
+</div>
+<div class="team-member">
+<img src="aalyan-ijaz.jpg" alt="Aalyan-Ijaz">
+<h4>Aalyan & Ijaz</h4>
+<p>Development & Strategy</p>
+<div class="social-icons"><a href="https://t.me/aalyan_ijaz" target="_blank"><i class="fab fa-telegram"></i></a></div>
+</div>
+</div>
+</div>
+
+<script>
+// Particle Canvas
+const canvas=document.getElementById('particles');const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth; canvas.height=window.innerHeight; let particles=[];
+function Particle(x,y){this.x=x;this.y=y;this.size=Math.random()*4+1;this.speedX=(Math.random()-0.5)*2;this.speedY=(Math.random()-0.5)*2;this.color=`hsl(${Math.random()*360},100%,80%)`;}
+Particle.prototype.update=function(){this.x+=this.speedX; this.y+=this.speedY; if(this.size>0.1)this.size-=0.02;}
+Particle.prototype.draw=function(){ctx.fillStyle=this.color; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill();}
+function handleParticles(){for(let i=0;i<particles.length;i++){particles[i].update();particles[i].draw();}
+particles=particles.filter(p=>p.size>0.1); requestAnimationFrame(handleParticles);}
+handleParticles();
+window.addEventListener('mousemove',function(e){for(let i=0;i<3;i++){particles.push(new Particle(e.clientX,e.clientY));}});
+window.addEventListener('resize',function(){canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
+
+// Scroll animations
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');}});},{threshold:0.2});
+document.querySelectorAll('h1,h2,p,.roadmap-item,.team-member').forEach(el=>observer.observe(el));
+
+// Button click particle explosion
+document.querySelectorAll('.btn').forEach(button=>{button.addEventListener('click',function(e){
+  for(let i=0;i<20;i++){const p=new Particle(e.clientX,e.clientY); p.speedX=(Math.random()-0.5)*6; p.speedY=(Math.random()-0.5)*6; p.size=3+Math.random()*3; particles.push(p);}
+});});
+
+// Scroll-following sparkles
+let lastScroll=window.scrollY;
+window.addEventListener('scroll', function(){
+  const delta = window.scrollY - lastScroll;
+  lastScroll = window.scrollY;
+  for(let i=0;i<5;i++){
+    const x = Math.random()*window.innerWidth;
+    const y = delta>0 ? window.innerHeight : 0; // bottom or top
+    const p = new Particle(x,y);
+    p.speedX=(Math.random()-0.5)*2; p.speedY=(delta>0?-1:1)*(Math.random()*2+1);
+    particles.push(p);
+  }
+});
+</script>
+</body>
+</html>
