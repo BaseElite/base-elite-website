@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BASE ELITE | $BELITE — Premium</title>
+  <meta name="description" content="Base Elite ($BELITE) — family token. Community on Discord. Roadmap, How-to-buy, whitepaper, FAQ."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+  :root{
+    --bg1:#04101F; --bg2:#02101A; --card:#071825; --accent:#00d2ff;
+    --muted:#98abc1; --white:#f4fbff; --radius:14px;
+    --maxw:1150px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+    color:var(--white);
+    background:linear-gradient(180deg,var(--bg1),var(--bg2));
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:20px;
+  }
+
+  /* Animated background (subtle, video-like) */
+  .bg-anim{
+    position:fixed; inset:0; z-index:-2; overflow:hidden;
+    background: radial-gradient(circle at 10% 20%, rgba(0,210,255,0.06), transparent 8%),
+                radial-gradient(circle at 80% 80%, rgba(107,231,255,0.04), transparent 10%);
+    animation:move-bg 18s linear infinite;
+    filter:blur(18px) saturate(110%);
+  }
+  @keyframes move-bg{
+    0%{transform:translateY(0) scale(1)}
+    50%{transform:translateY(-40px) scale(1.03)}
+    100%{transform:translateY(0) scale(1)}
+  }
+
+  /* subtle grid overlay for 'video' texture */
+  .bg-grid{
+    position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+    background-size: 120px 120px, 120px 120px;
+    opacity:0.6;
+    mix-blend-mode:overlay;
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto; position:relative}
+
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{width:64px;height:64px;border-radius:12px;object-fit:cover;box-shadow:0 8px 30px rgba(0,210,255,0.08)}
+  .title h1{font-size:22px;margin-bottom:2px}
+  .title p{color:var(--muted);font-size:13px;margin:0}
+
+  nav{display:flex;gap:10px;align-items:center}
+  .btn{
+    background:linear-gradient(90deg,var(--accent),#6be7ff);
+    color:#022b30;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700;
+    box-shadow:0 8px 30px rgba(0,210,255,0.12);transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn:hover{transform:translateY(-3px); box-shadow:0 18px 40px rgba(0,210,255,0.18)}
+  .btn.ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.06)}
+
+  main{display:grid;grid-template-columns:1fr 420px;gap:22px}
+  @media(max-width:980px){main{grid-template-columns:1fr;padding:0 8px}}
+
+  /* HERO / LEFT */
+  .hero{
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    padding:26px;border-radius:16px;box-shadow:0 8px 30px rgba(2,6,23,0.6);
+    overflow:hidden; position:relative;
+  }
+  /* logo glow animation */
+  .logo-glow{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .logo-glow img{width:78px;height:78px;border-radius:14px;object-fit:cover;
+    box-shadow:0 12px 40px rgba(0,210,255,0.12); transition:transform .25s;}
+  .logo-glow img.spin{animation:spin 12s linear infinite}
+  @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+  .logo-glow .brand-title h2{font-size:28px;margin:0;color:transparent;background:linear-gradient(90deg,#bff6ff,#00d2ff);-webkit-background-clip:text}
+
+  .hero p.lead{color:var(--muted);margin-bottom:18px}
+
+  /* counters & metrics */
+  .metrics{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  .metric{background:rgba(255,255,255,0.02);padding:12px;border-radius:12px;min-width:160px}
+  .metric .num{font-size:20px;font-weight:700}
+  .metric .label{color:var(--muted);font-size:13px}
+
+  /* chart */
+  .chart-card{margin-top:10px;background:rgba(0,0,0,0.04);padding:12px;border-radius:12px}
+  canvas{width:100%;height:220px;display:block;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01))}
+
+  /* CTA */
+  .cta-row{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+
+  /* RIGHT SIDEBAR */
+  aside{position:relative}
+  .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:14px;box-shadow:0 6px 24px rgba(2,6,23,0.55)}
+  .section-title{font-size:18px;color:#6BE7FF;margin-bottom:10px;font-weight:700}
+
+  /* Roadmap */
+  .roadmap{display:flex;flex-direction:column;gap:10px}
+  .step{border-left:3px solid rgba(107,231,255,0.18);padding-left:10px;color:var(--muted);padding-top:6px;padding-bottom:6px;border-radius:6px}
+
+  /* How to Buy (accordion style) */
+  .htb ol{padding-left:18px;color:var(--muted)}
+
+  /* Team */
+  .team-grid{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:flex-start}
+  .member{width:100px;text-align:center}
+  .member img{width:100px;height:100px;border-radius:12px;object-fit:cover;background:#04121f}
+
+  /* whitepaper + faq */
+  .whitepaper{display:flex;gap:10px;align-items:center}
+  .faq{margin-top:12px}
+  .faq-item{margin-bottom:10px}
+  .faq-item summary{cursor:pointer;background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;color:var(--muted);font-weight:600}
+  .faq-item p{padding:10px 12px;color:var(--muted)}
+
+  footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+
+  /* small helpers */
+  .muted{color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+
+  <!-- animated background layers -->
+  <div class="bg-anim"></div>
+  <div class="bg-grid"></div>
+
+  <div class="wrap">
+    <!-- header -->
+    <header>
+      <div class="brand">
+        <img src="https://raw.githubusercontent.com/BaseElite/Images/main/logo.png" alt="Base Elite Logo" id="headerLogo">
+        <div class="title">
+          <h1>BASE ELITE | $BELITE</h1>
+          <p>Family • Unity • Real Support</p>
+        </div>
+      </div>
+
+      <nav>
+        <a class="btn" href="https://discord.gg/S6ZGXayvW" target="_blank" rel="noopener">Join Discord</a>
+        <a class="btn ghost" href="#howto">How to Buy</a>
+        <a class="btn ghost" href="#whitepaper">Whitepaper</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- left: hero + chart -->
+      <section>
+        <div class="hero">
+
+          <!-- logo + title with glow -->
+          <div class="logo-glow">
+            <img id="logoSpin" src="https://raw.githubusercontent.com/BaseElite/Images/main/logo.png" class="spin" alt="BELITE">
+            <div class="brand-title">
+              <h2>BASE ELITE — $BELITE</h2>
+              <div class="muted">Built for family, not hype.</div>
+            </div>
+          </div>
+
+          <p class="lead">Join our community for the launch on <strong>1 December 2025</strong>. Community-first token, roadmap for real utility and support.</p>
+
+          <!-- metrics -->
+          <div class="metrics">
+            <div class="metric">
+              <div class="num" id="supplyCounter">0</div>
+              <div class="label">Total Supply</div>
+            </div>
+            <div class="metric">
+              <div class="num">100%</div>
+              <div class="label">Fair Launch</div>
+            </div>
+            <div class="metric">
+              <div class="num">Discord</div>
+              <div class="label">Community</div>
+            </div>
+          </div>
+
+          <!-- chart -->
+          <div class="chart-card card">
+            <canvas id="priceChart" width="800" height="220"></canvas>
+            <div class="muted" style="margin-top:8px">Sample price trend animation (mock). Not financial advice.</div>
+          </div>
+
+          <!-- CTA -->
+          <div class="cta-row">
+            <a class="btn" href="https://discord.gg/S6ZGXayvW" target="_blank">Join Discord</a>
+            <a class="btn ghost" href="#roadmap">View Roadmap</a>
+            <a class="btn ghost" href="#team">Meet Team</a>
+          </div>
+        </div>
+
+        <!-- How to Buy (anchor) -->
+        <div id="howto" class="card" style="margin-top:14px">
+          <div class="section-title">🪙 How to Buy</div>
+          <div class="muted" style="margin-bottom:8px">Step-by-step for Base.meme launch</div>
+          <div class="htb">
+            <ol>
+              <li>Install MetaMask / Coinbase Wallet & switch to Base network.</li>
+              <li>Go to <b>base.meme</b> at launch and search <b>$BELITE</b>.</li>
+              <li>Connect wallet, set slippage (e.g. 1-3%), and complete purchase.</li>
+              <li>After buying, join Discord and add to your watchlist.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- whitepaper quick -->
+        <div id="whitepaper" class="card" style="margin-top:14px">
+          <div class="section-title">📄 Whitepaper</div>
+          <div class="whitepaper">
+            <div class="muted">Read the full whitepaper (Google Docs)</div>
+            <div style="margin-left:auto">
+              <a class="btn" href="https://docs.google.com/document/d/1zs-d48IJ31xzAKyCX9xN15AT5jnU1l0_YpK5icin2-Q/edit?usp=drivesdk" target="_blank">Open Whitepaper</a>
+            </div>
+          </div>
+
+          <!-- FAQ -->
+          <div class="faq" style="margin-top:12px">
+            <div class="section-title" style="font-size:16px;margin-top:10px">❓ FAQ</div>
+
+            <div class="faq-item">
+              <details>
+                <summary>When is the launch?</summary>
+                <p>Launch planned for <strong>1 December 2025</strong> on Base.meme. Join Discord for updates.</p>
+              </details>
+            </div>
+
+            <div class="faq-item">
+              <details>
+                <summary>How can I join the team/community?</summary>
+                <p>Click Join Discord or follow instructions in the How to Buy section. We welcome contributors and moderators.</p>
+              </details>
+            </div>
+
+            <div class="faq-item">
+              <details>
+                <summary>Where are images hosted?</summary>
+                <p>Team & logo images are hosted on our GitHub repository for reliability.</p>
+              </details>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- right: sidebar -->
+      <aside>
+        <!-- Roadmap -->
+        <div class="card" id="roadmap" style="margin-bottom:14px">
+          <div class="section-title">📌 Roadmap</div>
+          <div class="roadmap">
+            <div class="step"><strong>Q4 2025</strong> — Token launch, community growth</div>
+            <div class="step"><strong>Q1 2026</strong> — Small CEX targets & staking research</div>
+            <div class="step"><strong>Q2 2026</strong> — Utility rollout & community fund</div>
+            <div class="step"><strong>Q3 2026</strong> — Merch & partnerships</div>
+          </div>
+        </div>
+
+        <!-- Team -->
+        <div class="card" id="team" style="margin-bottom:14px">
+          <div class="section-title">👥 Team</div>
+          <div class="team-grid">
+            <div class="member">
+              <img src="https://raw.githubusercontent.com/BaseElite/Images/main/talha.png" alt="Talha">
+              <div>Talha</div>
+            </div>
+
+            <div class="member">
+              <img src="https://raw.githubusercontent.com/BaseElite/Images/main/saima-maheen.png" style="object-position:left" alt="Saima">
+              <div>Saima</div>
+            </div>
+
+            <div class="member">
+              <img src="https://raw.githubusercontent.com/BaseElite/Images/main/saima-maheen.png" style="object-position:right" alt="Maheen">
+              <div>Maheen</div>
+            </div>
+
+            <div class="member">
+              <img src="https://raw.githubusercontent.com/BaseElite/Images/main/aalyan-ijaz.png" style="object-position:left" alt="Aalyan">
+              <div>Aalyan</div>
+            </div>
+
+            <div class="member">
+              <img src="https://raw.githubusercontent.com/BaseElite/Images/main/aalyan-ijaz.png" style="object-position:right" alt="Ijaz">
+              <div>Ijaz</div>
+            </div>
+          </div>
+
+          <div class="muted" style="margin-top:12px">If any image fails to load, go to the Images repo and ensure filenames match.</div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="card">
+          <div class="section-title">Quick Links</div>
+          <ul style="list-style:none;padding-left:0;margin-top:6px">
+            <li style="margin-bottom:8px"><a class="btn ghost" href="https://discord.gg/S6ZGXayvW" target="_blank">Discord</a></li>
+            <li style="margin-bottom:8px"><a class="btn ghost" href="#howto">How to Buy</a></li>
+            <li style="margin-bottom:8px"><a class="btn ghost" href="https://github.com/BaseElite" target="_blank">GitHub</a></li>
+            <li style="margin-bottom:8px"><a class="btn ghost" href="#whitepaper">Whitepaper</a></li>
+          </ul>
+        </div>
+
+      </aside>
+    </main>
+
+    <footer>
+      © <span id="year"></span> BASE ELITE — Built with ❤️ by the Family
+    </footer>
+  </div>
+
+  <!-- JS: counter, chart animation, small UX -->
+  <script>
+  // ===== Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ===== Token Supply Counter animation to 1,000,000,000
+  (function(){
+    const el = document.getElementById('supplyCounter');
+    const target = 1000000000; // 1,000,000,000
+    const duration = 3000; // ms
+    const start = Date.now();
+    function fmt(n){
+      return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    function tick(){
+      const now = Date.now();
+      const t = Math.min(1, (now - start) / duration);
+      const eased = t<0.5 ? 2*t*t : -1 + (4 - 2*t)*t; // easeInOut approximation
+      const val = Math.floor(eased * target);
+      el.textContent = fmt(val);
+      if(t < 1) requestAnimationFrame(tick);
+      else el.textContent = fmt(target);
+    }
+    // start slightly delayed for UX
+    setTimeout(tick, 300);
+  })();
+
+  // ===== Chart animation (simple canvas line)
+  (function(){
+    const canvas = document.getElementById('priceChart');
+    const ctx = canvas.getContext('2d');
+    // device pixel ratio handling
+    function resize(){
+      const ratio = window.devicePixelRatio || 1;
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      canvas.width = Math.floor(w * ratio);
+      canvas.height = Math.floor(h * ratio);
+      ctx.setTransform(ratio,0,0,ratio,0,0);
+    }
+    resize();
+    window.addEventListener('resize', () => { resize(); draw(1); });
+
+    // sample data (mock)
+    const points = [100, 120, 95, 140, 130, 155, 170, 160, 190, 220];
+    const padding = 24;
+    function getXY(i, t){
+      const w = canvas.clientWidth - padding*2;
+      const h = canvas.clientHeight - padding*2;
+      const x = padding + (i/(points.length-1)) * w;
+      const min = Math.min(...points);
+      const max = Math.max(...points);
+      const val = points[i];
+      const y = padding + (1 - (val - min)/(max-min)) * h;
+      return {x,y};
+    }
+
+    // draw with animation progress (0..1)
+    function draw(progress){
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      ctx.clearRect(0,0,w,h);
+
+      // gradient fill under curve
+      const grad = ctx.createLinearGradient(0,0,0,h);
+      grad.addColorStop(0, 'rgba(0,210,255,0.12)');
+      grad.addColorStop(1, 'rgba(0,210,255,0.02)');
+
+      // compute path
+      ctx.beginPath();
+      for(let i=0;i<points.length;i++){
+        const {x,y} = getXY(i, progress);
+        const animX = padding + ((i/(points.length-1)) * (w - padding*2)) * Math.min(1, progress*1.2);
+        const animY = y;
+        if(i===0) ctx.moveTo(animX, animY);
+        else ctx.lineTo(animX, animY);
+      }
+      ctx.strokeStyle = 'rgba(0,210,255,0.95)';
+      ctx.lineWidth = 2.4;
+      ctx.stroke();
+
+      // fill under curve
+      ctx.lineTo(padding + ((points.length-1)/(points.length-1)) * (w - padding*2) * Math.min(1, progress*1.2), canvas.clientHeight - padding);
+      ctx.lineTo(padding, canvas.clientHeight - padding);
+      ctx.closePath();
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // draw points
+      for(let i=0;i<points.length;i++){
+        const {x,y} = getXY(i, progress);
+        const drawX = padding + ((i/(points.length-1)) * (w - padding*2)) * Math.min(1, progress*1.2);
+        ctx.beginPath();
+        ctx.arc(drawX, y, 3.2, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(255,255,255,0.95)';
+        ctx.fill();
+      }
+    }
+
+    // animate progress from 0 to 1
+    let start = null;
+    function animate(ts){
+      if(!start) start = ts;
+      const dur = 1500;
+      const t = Math.min(1, (ts - start)/dur);
+      const eased = t<0.5 ? 2*t*t : -1 + (4 - 2*t)*t;
+      draw(eased);
+      if(t<1) requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+  })();
+
+  // ===== Accessibility: set alt text if images missing
+  (function(){
+    const imgs = document.querySelectorAll('.member img, #headerLogo, #logoSpin');
+    imgs.forEach(i => {
+      i.onerror = function(){ this.style.opacity = 0.35; this.style.filter = 'grayscale(40%)'; }
+    });
+  })();
+
+  </script>
+</body>
+</html>
